@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+
+body{background-color:#101010;
+     animation:yes;
+     animation-duration:3s;
+     animation-iteration-count:1;
+}
+
+@keyframes yes{
+
+   0%{opacity:0;}
+   100%{opacity:1;}
+   }
+
+.tit{color:white;
+     font-size:70px;
+     font-family:sans-serif;
+}
+.cont{display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-top:50%;
+      }
+      
+.discord{width:100px;
+          height:100px;
+          border-radius:15%;
+          background-color:black;
+          transition:background-color 1s;
+          }
+.github{width:100px;
+          height:100px;
+          border-radius:15%;
+          background-color:black;
+          transition:background-color 1s;
+          }
+.youtube{width:100px;
+       height:100px;
+       border-radius:15%; 
+       background-color:black;
+       transition:background-color 1s
+          }
+.fa-discord{color:rgb(88,101,242);
+             transition:color 2s;
+}
+.fa-github{color:white;
+             transition:color 2s;
+}
+.fa-youtube{color:red;
+         transition:background-color 2s;
+}
+
+.github:hover {background-color:white;}
+.fa-github:hover{color:black;}
+.fa-discord:hover{color:black}
+.discord:hover{background-color:rgb(88,101,242);}
+.youtube:hover {background-color:red;}
+.fa-youtube:hover{color:black}
+
+#yee{
+font-weight:bolder;
+color:white;
+font-size:250%;
+position:absolute;
+   top:0;
+   left:0;
+}
+#tim{
+font-weight:bolder;
+color:white;
+font-size:250%;
+position:absolute;
+   top:0;
+   right:0;
+}
+#info{
+color:white;
+position:absolute;
+top:50%;
+bottom:50%;
+right:28%;
+font-size:200%;
+font-weight:bold;
+}
+#batt{
+color:white;
+position:absolute;
+right:50%;
+left:50%;
+top:1%;
+font-size:200%;
+font-weight:bold;
+}
+
+
+
+</style>
+</head>
+<body>
+<div id="batt"></div>
+<div id="info"></div>
+<div id="yee"></div>
+<div id="tim"></div>
+<script src="https://kit.fontawesome.com/b38c4485d6.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+//setInterval(function(){
+//  var date = new Date();
+//  time = date.getSeconds()
+  //document.write(time)
+//}, 1000);
+
+
+
+setInterval(function(){
+let date = new Date()
+year = date.getFullYear()
+let month = date.getMonth();
+let day = date.getDate();
+let hour = date.getHours();
+let min = date.getMinutes();
+let sec = date.getSeconds();
+if(sec<10){
+sec = "0"+sec
+}
+if(min<10){
+min = "0"+min
+}
+time = hour+":"+min+":"+sec
+switch(month){
+case 7:month = "August"
+break;
+case 8:month = "September"
+break;
+case 9:month = "October"
+break;
+case 10:month = "November"
+break;
+case 11:month = "December"
+break;
+}
+
+document.getElementById("yee").innerHTML = month+" "+ day
+function mytime(){
+document.getElementById("tim").innerHTML = time
+}
+mytime()
+},1000)
+</script>
+<script type="text/javascript">
+
+
+(function (window) {
+    {
+        var unknown = '-';
+
+        // screen
+        var screenSize = '';
+        if (screen.width) {
+            width = (screen.width) ? screen.width : '';
+            height = (screen.height) ? screen.height : '';
+            screenSize += '' + width + " x " + height;
+        }
+
+        // browser
+        var nVer = navigator.appVersion;
+        var nAgt = navigator.userAgent;
+        var browser = navigator.appName;
+        var version = '' + parseFloat(navigator.appVersion);
+        var majorVersion = parseInt(navigator.appVersion, 10);
+        var nameOffset, verOffset, ix;
+
+        // Opera
+        if ((verOffset = nAgt.indexOf('Opera')) != -1) {
+            browser = 'Opera';
+            version = nAgt.substring(verOffset + 6);
+            if ((verOffset = nAgt.indexOf('Version')) != -1) {
+                version = nAgt.substring(verOffset + 8);
+            }
+        }
+        // Opera Next
+        if ((verOffset = nAgt.indexOf('OPR')) != -1) {
+            browser = 'Opera';
+            version = nAgt.substring(verOffset + 4);
+        }
+        // Legacy Edge
+        else if ((verOffset = nAgt.indexOf('Edge')) != -1) {
+            browser = 'Microsoft Legacy Edge';
+            version = nAgt.substring(verOffset + 5);
+        } 
+        // Edge (Chromium)
+        else if ((verOffset = nAgt.indexOf('Edg')) != -1) {
+            browser = 'Microsoft Edge';
+            version = nAgt.substring(verOffset + 4);
+        }
+        // MSIE
+        else if ((verOffset = nAgt.indexOf('MSIE')) != -1) {
+            browser = 'Microsoft Internet Explorer';
+            version = nAgt.substring(verOffset + 5);
+        }
+        // Chrome
+        else if ((verOffset = nAgt.indexOf('Chrome')) != -1) {
+            browser = 'Chrome';
+            version = nAgt.substring(verOffset + 7);
+        }
+        // Safari
+        else if ((verOffset = nAgt.indexOf('Safari')) != -1) {
+            browser = 'Safari';
+            version = nAgt.substring(verOffset + 7);
+            if ((verOffset = nAgt.indexOf('Version')) != -1) {
+                version = nAgt.substring(verOffset + 8);
+            }
+        }
+        // Firefox
+        else if ((verOffset = nAgt.indexOf('Firefox')) != -1) {
+            browser = 'Firefox';
+            version = nAgt.substring(verOffset + 8);
+        }
+        // MSIE 11+
+        else if (nAgt.indexOf('Trident/') != -1) {
+            browser = 'Microsoft Internet Explorer';
+            version = nAgt.substring(nAgt.indexOf('rv:') + 3);
+        }
+        // Other browsers
+        else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) < (verOffset = nAgt.lastIndexOf('/'))) {
+            browser = nAgt.substring(nameOffset, verOffset);
+            version = nAgt.substring(verOffset + 1);
+            if (browser.toLowerCase() == browser.toUpperCase()) {
+                browser = navigator.appName;
+            }
+        }
+        // trim the version string
+        if ((ix = version.indexOf(';')) != -1) version = version.substring(0, ix);
+        if ((ix = version.indexOf(' ')) != -1) version = version.substring(0, ix);
+        if ((ix = version.indexOf(')')) != -1) version = version.substring(0, ix);
+
+        majorVersion = parseInt('' + version, 10);
+        if (isNaN(majorVersion)) {
+            version = '' + parseFloat(navigator.appVersion);
+            majorVersion = parseInt(navigator.appVersion, 10);
+        }
+
+        // mobile version
+        var mobile = /Mobile|mini|Fennec|Android|iP(ad|od|hone)/.test(nVer);
+
+        // cookie
+        var cookieEnabled = (navigator.cookieEnabled) ? true : false;
+
+        if (typeof navigator.cookieEnabled == 'undefined' && !cookieEnabled) {
+            document.cookie = 'testcookie';
+            cookieEnabled = (document.cookie.indexOf('testcookie') != -1) ? true : false;
+        }
+
+        // system
+        var os = unknown;
+        var clientStrings = [
+            {s:'Windows 10', r:/(Windows 10.0|Windows NT 10.0)/},
+            {s:'Windows 8.1', r:/(Windows 8.1|Windows NT 6.3)/},
+            {s:'Windows 8', r:/(Windows 8|Windows NT 6.2)/},
+            {s:'Windows 7', r:/(Windows 7|Windows NT 6.1)/},
+            {s:'Windows Vista', r:/Windows NT 6.0/},
+            {s:'Windows Server 2003', r:/Windows NT 5.2/},
+            {s:'Windows XP', r:/(Windows NT 5.1|Windows XP)/},
+            {s:'Windows 2000', r:/(Windows NT 5.0|Windows 2000)/},
+            {s:'Windows ME', r:/(Win 9x 4.90|Windows ME)/},
+            {s:'Windows 98', r:/(Windows 98|Win98)/},
+            {s:'Windows 95', r:/(Windows 95|Win95|Windows_95)/},
+            {s:'Windows NT 4.0', r:/(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/},
+            {s:'Windows CE', r:/Windows CE/},
+            {s:'Windows 3.11', r:/Win16/},
+            {s:'Android', r:/Android/},
+            {s:'Open BSD', r:/OpenBSD/},
+            {s:'Sun OS', r:/SunOS/},
+            {s:'Chrome OS', r:/CrOS/},
+            {s:'Linux', r:/(Linux|X11(?!.*CrOS))/},
+            {s:'iOS', r:/(iPhone|iPad|iPod)/},
+            {s:'Mac OS X', r:/Mac OS X/},
+            {s:'Mac OS', r:/(Mac OS|MacPPC|MacIntel|Mac_PowerPC|Macintosh)/},
+            {s:'QNX', r:/QNX/},
+            {s:'UNIX', r:/UNIX/},
+            {s:'BeOS', r:/BeOS/},
+            {s:'OS/2', r:/OS\/2/},
+            {s:'Search Bot', r:/(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/}
+        ];
+        for (var id in clientStrings) {
+            var cs = clientStrings[id];
+            if (cs.r.test(nAgt)) {
+                os = cs.s;
+                break;
+            }
+        }
+
+        var osVersion = unknown;
+
+        if (/Windows/.test(os)) {
+            osVersion = /Windows (.*)/.exec(os)[1];
+            os = 'Windows';
+        }
+
+        switch (os) {
+            case 'Mac OS':
+            case 'Mac OS X':
+            case 'Android':
+                osVersion = /(?:Android|Mac OS|Mac OS X|MacPPC|MacIntel|Mac_PowerPC|Macintosh) ([\.\_\d]+)/.exec(nAgt)[1];
+                break;
+
+            case 'iOS':
+                osVersion = /OS (\d+)_(\d+)_?(\d+)?/.exec(nVer);
+                osVersion = osVersion[1] + '.' + osVersion[2] + '.' + (osVersion[3] | 0);
+                break;
+        }
+        
+        // flash (you'll need to include swfobject)
+        /* script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" */
+        var flashVersion = 'no check';
+        if (typeof swfobject != 'undefined') {
+            var fv = swfobject.getFlashPlayerVersion();
+            if (fv.major > 0) {
+                flashVersion = fv.major + '.' + fv.minor + ' r' + fv.release;
+            }
+            else  {
+                flashVersion = unknown;
+            }
+        }
+    }
+
+    window.jscd = {
+        screen: screenSize,
+        browser: browser,
+        browserVersion: version,
+        browserMajorVersion: majorVersion,
+        mobile: mobile,
+        os: os,
+        osVersion: osVersion,
+        cookies: cookieEnabled,
+        flashVersion: flashVersion
+    };
+}(this));
+
+document.getElementById('info').innerHTML = jscd.browser+' '+jscd.browserMajorVersion+' on '+jscd.os+' '+jscd.osVersion
+</script>
+<script type="text/javascript">
+navigator.getBattery().then(function(battery) {
+
+    var level = battery.level;
+
+    document.getElementById('batt').innerHTML = level*100+'%'
+});
+</script>
+<div class="cont">
+<h1 class="tit">Hello&nbsp&nbsp</h1>
+<br>
+<br>
+<br>
+<br>
+<a href="https://discord.gg/3NpCDDMnSZ" target="_blank"><button class="discord"><i class="fab fa-discord fa-5x" aria-hidden="true"></i></button></a>
+&nbsp&nbsp&nbsp
+<a href="https://github.com/greenapple39/" ><button class="github"><i class="fab fa-github fa-5x" aria-hidden="true"></i></button>
+&nbsp&nbsp&nbsp
+<a href="https://youtube.com/channel/UCB5i1euOWvmKZH7BVbX_X2Q" ><button class="youtube"><i class="fab fa-youtube fa-5x" aria-hidden="true"></i></button>
+</div>
