@@ -5,6 +5,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 
+.uni{
+    display: flex;
+  flex-wrap:wrap;
+}
+
 body{background-color:#101010;
      animation:yes;
      animation-duration:3s;
@@ -21,10 +26,11 @@ body{background-color:#101010;
      font-size:70px;
      font-family:sans-serif;
 }
-.cont{display:flex;
-      justify-content:center;
-      align-items:center;
-      margin-top:50%;
+.cont{ position: absolute;
+  top: 40%;
+  left: 35%;
+  -ms-transform: translate(-50%, -50%);ss
+  transform: translate(-50%, -50%);
       }
       
 .discord{width:100px;
@@ -80,10 +86,12 @@ position:absolute;
 }
 #info{
 color:white;
-position:absolute;
-top:50%;
-bottom:50%;
-right:28%;
+margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  -ms-transform: translate(-50%, -50%);ss
+  transform: translate(-50%, -50%);
 font-size:200%;
 font-weight:bold;
 }
@@ -102,8 +110,23 @@ font-weight:bold;
 </style>
 </head>
 <body>
+    <div class="uni">
+        <div class="cont">
+        <h1 class="tit">&nbsp&nbsp&nbsp&nbspHello</h1>
+        <a href="https://discord.gg/3NpCDDMnSZ" target="_blank"><button class="discord"><i class="fab fa-discord fa-5x" aria-hidden="true"></i></button></a>
+        &nbsp&nbsp&nbsp
+        <a href="https://github.com/greenapple39/" ><button class="github"><i class="fab fa-github fa-5x" aria-hidden="true"></i></button>
+        &nbsp&nbsp&nbsp
+        <a href="https://youtube.com/" ><button class="youtube"><i class="fab fa-youtube fa-5x" aria-hidden="true"></i></button>
+        </div>
+        </div>
+        
 <div id="batt"></div>
-<div id="info"></div>
+<div id="info">
+    <p id="infoo">
+
+    </p>
+</div>
 <div id="yee"></div>
 <div id="tim"></div>
 <script src="https://kit.fontawesome.com/b38c4485d6.js" crossorigin="anonymous"></script>
@@ -343,25 +366,17 @@ mytime()
     };
 }(this));
 
-document.getElementById('info').innerHTML = jscd.browser+' '+jscd.browserMajorVersion+' on '+jscd.os+' '+jscd.osVersion
+document.getElementById('infoo').innerHTML = jscd.browser+' '+jscd.browserMajorVersion+' on '+jscd.os+' '+jscd.osVersion
 </script>
 <script type="text/javascript">
 navigator.getBattery().then(function(battery) {
 
     var level = battery.level;
 
-    document.getElementById('batt').innerHTML = level*100+'%'
+ battery_level = level*100+'%'
+
+    document.getElementById('batt').innerHTML = battery_level
 });
 </script>
-<div class="cont">
-<h1 class="tit">Hello&nbsp&nbsp</h1>
-<br>
-<br>
-<br>
-<br>
-<a href="https://discord.gg/3NpCDDMnSZ" target="_blank"><button class="discord"><i class="fab fa-discord fa-5x" aria-hidden="true"></i></button></a>
-&nbsp&nbsp&nbsp
-<a href="https://github.com/greenapple39/" ><button class="github"><i class="fab fa-github fa-5x" aria-hidden="true"></i></button>
-&nbsp&nbsp&nbsp
-<a href="https://youtube.com/" ><button class="youtube"><i class="fab fa-youtube fa-5x" aria-hidden="true"></i></button>
-</div>
+</body>
+</html>
