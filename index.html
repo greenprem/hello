@@ -104,12 +104,50 @@ top:1%;
 font-size:200%;
 font-weight:bold;
 }
-
+#ipadd{
+    color: aliceblue;
+    position: absolute;
+    bottom: 0%;
+    left: 4%;
+    font-size: 200%;
+    
+}
+.fa-map-marker-alt{
+    color: white;
+    position: absolute;
+    bottom: 5%;
+    font-size: 300%;
+}
+#city{
+    color: aliceblue;
+    position: absolute;
+    bottom: 0%;
+    right: 2%;
+    font-size: 200%;
+    
+}
+#cityy{
+    color: aliceblue;
+    position: absolute;
+    bottom: 0%;
+    right: 8%;
+    font-size: 200%;
+    
+}
+.fa-globe{
+    color: azure;
+    font-size:300%;
+    position: absolute;
+    bottom: 5%;
+    right: 15%;
+}
 
 
 </style>
 </head>
 <body>
+    <div><i class="fas fa-globe"></i><h2 id="cityy"></h2><h2 id="city"></h2></div>
+    <div><i class="fas fa-map-marker-alt"></i><h2 id="ipadd"></h2></div>
     <div class="uni">
         <div class="cont">
         <h1 class="tit">&nbsp&nbsp&nbsp&nbspHello</h1>
@@ -157,6 +195,19 @@ min = "0"+min
 }
 time = hour+":"+min+":"+sec
 switch(month){
+case 0:month = "Janauary"
+case 1:month = "February"
+break;
+case 2:month = "March"
+break;
+case 3:month = "April"
+break;
+case 4:month = "May"
+break;
+case 5:month = "June"
+break;
+case 6:month = "July"
+break;
 case 7:month = "August"
 break;
 case 8:month = "September"
@@ -378,5 +429,19 @@ navigator.getBattery().then(function(battery) {
     document.getElementById('batt').innerHTML = battery_level
 });
 </script>
+<script>
+    fetch("http://www.geoplugin.net/json.gp")
+    .then(response => response.json())
+    .then(data => {
+    console.log(data.geoplugin_city)
+    var loc = ((data.geoplugin_city,",",data.geoplugin_countryName));
+    var citt = (data.geoplugin_city)
+    console.log(citt)
+    console.log(loc)
+    document.getElementById('city').innerHTML = citt
+    document.getElementById('cityy').innerHTML = loc+" ,"
+    document.getElementById('ipadd').innerHTML = data.geoplugin_request
+    })
+    </script>
 </body>
 </html>
