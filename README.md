@@ -1,2 +1,2 @@
 # mine
-A cool website i made
+a cool website i made
