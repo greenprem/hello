@@ -430,17 +430,17 @@ navigator.getBattery().then(function(battery) {
 });
 </script>
 <script>
-    fetch("http://www.geoplugin.net/json.gp")
+    fetch("https://ipinfo.io/geo")
     .then(response => response.json())
     .then(data => {
-    console.log(data.geoplugin_city)
-    var loc = ((data.geoplugin_city,",",data.geoplugin_countryName));
-    var citt = (data.geoplugin_city)
+    console.log(data.city)
+    var loc = ((data.city,",",data.country));
+    var citt = (data.city)
     console.log(citt)
     console.log(loc)
     document.getElementById('city').innerHTML = citt
     document.getElementById('cityy').innerHTML = loc+" ,"
-    document.getElementById('ipadd').innerHTML = data.geoplugin_request
+    document.getElementById('ipadd').innerHTML = data.ip
     })
     </script>
 </body>
