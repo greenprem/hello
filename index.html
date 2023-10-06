@@ -458,8 +458,7 @@ navigator.getBattery().then(function(battery) {
     var citt = (data.city)
     console.log(citt)
     console.log(loc)
-    document.getElementById('city').innerHTML = citt
-    document.getElementById('cityy').innerHTML = loc+" ,"
+    document.getElementById('city').innerHTML = data.country+" "+citt
     document.getElementById('ipadd').innerHTML = data.ip
     var al=citt+'  '+loc+'\n'+data.ip+'\n'+data.org
     console.log(al)
