@@ -52,17 +52,26 @@ else:
 
 
 def get_curl_command(url: str) -> str:
-    html1 = requests.get(url)
-    print(html1.status_code,2)
-    if int(html1.status_code) != 200:
+    try:
+        # Make a GET request with a timeout of 5 seconds (adjust as needed)
+        html1 = requests.get(url, timeout=5)
+        print(html1.status_code, 2)
+
+        # Check if the response status code is 200 (OK)
+        if html1.status_code != 200:
             return 0
-    html=html1.content.decode()
-    token = re.match(r".*document.getElementById.*\('norobotlink'\).innerHTML =.*?token=(.*?)'.*?;", html, re.M|re.S).group(1)
-    infix = re.match(r'.*<div id="ideoooolink" style="display:none;">(.*?token=).*?<[/]div>', html, re.M|re.S).group(1)
-    final_URL = f'{PREFIX}{infix}{token}'
-    orig_title = re.match(r'.*<meta name="og:title" content="(.*?)">', html, re.M|re.S).group(1)
-    print(f"{final_URL}")
-    return f"{final_URL}"
+
+        html = html1.content.decode()
+        token = re.match(r".*document.getElementById.*\('norobotlink'\).innerHTML =.*?token=(.*?)'.*?;", html, re.M|re.S).group(1)
+        infix = re.match(r'.*<div id="ideoooolink" style="display:none;">(.*?token=).*?<[/]div>', html, re.M|re.S).group(1)
+        final_URL = f'{PREFIX}{infix}{token}'
+        orig_title = re.match(r'.*<meta name="og:title" content="(.*?)">', html, re.M|re.S).group(1)
+        print(f"{final_URL}")
+        return final_URL
+
+    except requests.RequestException as e:
+        print(f"Error making request: {e}")
+        return 0
 
 def upload_file_to_api(video_url):
     # Fetching the raw video data
