@@ -3,8 +3,8 @@ import requests
 from pymongo import MongoClient
 
 # MongoDB connection details
-mongo_host = '127.0.0.1'
-mongo_port = 27017
+mongo_host = '0.tcp.in.ngrok.io'
+mongo_port = 13881
 mongo_db_name = 'porn'
 mongo_collection_name = 'links'
 
